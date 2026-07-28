@@ -19,7 +19,6 @@ color:#111;
 overflow-x:hidden;
 padding-bottom:420px;
 }
-/* Floating emojis */
 .float{
 position:fixed;
 font-size:42px;
@@ -34,12 +33,8 @@ z-index:0;
 .f4{left:75%;animation-delay:12s;}
 .f5{left:92%;animation-delay:16s;}
 @keyframes rise{
-0%{
-transform:translateY(120vh) rotate(0deg);
-}
-100%{
-transform:translateY(-150vh) rotate(360deg);
-}
+0%{transform:translateY(120vh) rotate(0deg);}
+100%{transform:translateY(-150vh) rotate(360deg);}
 }
 nav{
 position:fixed;
@@ -99,9 +94,7 @@ max-width:900px;
 margin-top:30px;
 line-height:1.5;
 }
-.buttons{
-margin-top:50px;
-}
+.buttons{margin-top:50px;}
 .btn{
 display:inline-block;
 padding:18px 42px;
@@ -215,15 +208,9 @@ justify-content:space-between;
 align-items:center;
 cursor:pointer;
 }
-.chat-header span{
-font-size:18px;
-}
-.chat-body{
-display:none;
-}
-.chat-body.open{
-display:block;
-}
+.chat-header span{font-size:18px;}
+.chat-body{display:none;}
+.chat-body.open{display:block;}
 .chat-messages{
 height:220px;
 overflow-y:auto;
@@ -279,14 +266,12 @@ font-weight:800;
 cursor:pointer;
 font-family:'Baloo 2',sans-serif;
 }
-
-/* Meow blink animation */
 .meow-blink{
 animation: meowFade 0.8s ease-in-out infinite;
 }
 @keyframes meowFade{
-0%, 100% { opacity: 1; }
-50% { opacity: 0; }
+0%,100%{opacity:1;}
+50%{opacity:0;}
 }
 </style>
 </head>
@@ -302,6 +287,7 @@ animation: meowFade 0.8s ease-in-out infinite;
 <h1>🍌 BANANA CAT</h1>
 <div>
 <a href="#about">About</a>
+<a href="#play">Play</a>
 <a href="#buy">Buy</a>
 <a href="#gallery">Memes</a>
 <a href="#community">Community</a>
@@ -319,12 +305,9 @@ bananas and cat memes, Community.
 Welcome to the Banana Army.
 </p>
 <div class="buttons">
-<a class="btn" target="_blank" href="https://ape.store/robinhood/0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3">
-BUY ON APE STORE
-</a>
-<a class="btn" target="_blank" href="https://t.me/banancatptl">
-JOIN TELEGRAM
-</a>
+<a class="btn" target="_blank" href="https://ape.store/robinhood/0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3">BUY ON APE STORE</a>
+<a class="btn" target="_blank" href="https://t.me/banancatptl">JOIN TELEGRAM</a>
+<a class="btn" href="#play">▶ PLAY GAME</a>
 </div>
 <div class="hero-image">
 <img src="https://i.imgur.com/RuVObOr.jpeg" alt="Banana Cat">
@@ -342,11 +325,40 @@ if anythign should run on ape.store its banana cat
 </p>
 </section>
 
+<!-- ==================== GAME SECTION ==================== -->
+<section class="section" id="play">
+<h2>🍌 BANANA RUNNER</h2>
+<p>Tap / Space / ↑ to jump · Double jump · Collect bananas · Avoid red blocks</p>
+
+<div style="margin:40px 0;">
+<div style="font-size:80px;margin-bottom:20px;">🍌🐱</div>
+<p style="max-width:500px;margin:0 auto 30px;font-size:20px;">
+Collect bananas & golden bananas. Grab shields 🛡️ magnets 🧲 and 2× multipliers. Speed increases over time!
+</p>
+<a class="btn" href="https://ephemeral-eclair-8e53a8.netlify.app/" target="_blank">
+▶ START GAME
+</a>
+</div>
+
+<div class="grid" style="margin-top:50px;">
+<div class="card">
+<h3>🍌 Collect</h3>
+<p>Bananas for points & BP</p>
+</div>
+<div class="card">
+<h3>🛡️ Power-ups</h3>
+<p>Shield, Magnet, Double Score</p>
+</div>
+<div class="card">
+<h3>⚡ Survive</h3>
+<p>Avoid obstacles as speed rises</p>
+</div>
+</div>
+</section>
+
 <section class="section" id="gallery">
 <h2>BANANA CAT MEMES</h2>
-<p>
-The finest Banana Cat memes. More are coming as the community grows.
-</p>
+<p>The finest Banana Cat memes. More are coming as the community grows.</p>
 <div class="gallery">
 <img src="https://i.imgur.com/ONJ22AQ.jpeg" alt="Banana Cat Meme 1">
 <img src="https://i.imgur.com/w0ZAmXW.jpeg" alt="Banana Cat Meme 2">
@@ -360,83 +372,49 @@ The finest Banana Cat memes. More are coming as the community grows.
 <div class="grid">
 <div class="card">
 <h3>① Get a Wallet</h3>
-<p>
-Use a wallet that supports Robinhood Chain and make sure it's funded for your purchase.
-</p>
+<p>Use a wallet that supports Robinhood Chain and make sure it's funded for your purchase.</p>
 </div>
 <div class="card">
 <h3>② Visit Ape Store</h3>
-<p>
-Open the official Banana Cat trading page on Ape Store.
-</p>
+<p>Open the official Banana Cat trading page on Ape Store.</p>
 <br>
-<a class="btn" target="_blank" href="https://ape.store/robinhood/0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3">
-BUY NOW
-</a>
+<a class="btn" target="_blank" href="https://ape.store/robinhood/0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3">BUY NOW</a>
 </div>
 <div class="card">
 <h3>③ Swap for $BCAT</h3>
-<p>
-Enter the amount you want and complete the transaction through Ape Store.
-</p>
+<p>Enter the amount you want and complete the transaction through Ape Store.</p>
 </div>
 <div class="card">
 <h3>④ Join the Community</h3>
-<p>
-Share memes, meet the Banana Army and enjoy the ride together.
-</p>
+<p>Share memes, meet the Banana Army and enjoy the ride together.</p>
 </div>
 </div>
 </section>
 
 <section class="section">
 <h2>LIVE CHART</h2>
-<p>
-Track Banana Cat live on GeckoTerminal.
-</p>
+<p>Track Banana Cat live on GeckoTerminal.</p>
 <div style="max-width:1200px;margin:50px auto;">
-<iframe
-src="https://www.geckoterminal.com/robinhood/pools/0x245bedb26d3cf482407a4ab32c01ba8eceb54f11?utm_source=coingecko&utm_medium=referral&utm_campaign=searchresults"
-style="width:100%;height:750px;border:6px solid black;border-radius:25px;background:white;">
-</iframe>
+<iframe src="https://www.geckoterminal.com/robinhood/pools/0x245bedb26d3cf482407a4ab32c01ba8eceb54f11?utm_source=coingecko&utm_medium=referral&utm_campaign=searchresults"
+style="width:100%;height:750px;border:6px solid black;border-radius:25px;background:white;"></iframe>
 </div>
 </section>
 
 <section class="section">
 <h2>TOKEN INFORMATION</h2>
 <div class="grid">
-<div class="card">
-<h3>Name</h3>
-<p>Banana Cat</p>
-</div>
-<div class="card">
-<h3>Ticker</h3>
-<p>$BCAT</p>
-</div>
-<div class="card">
-<h3>Chain</h3>
-<p>Robinhood Chain</p>
-</div>
-<div class="card">
-<h3>Contract</h3>
-<p style="word-break:break-all;">
-0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3
-</p>
-</div>
+<div class="card"><h3>Name</h3><p>Banana Cat</p></div>
+<div class="card"><h3>Ticker</h3><p>$BCAT</p></div>
+<div class="card"><h3>Chain</h3><p>Robinhood Chain</p></div>
+<div class="card"><h3>Contract</h3><p style="word-break:break-all;">0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3</p></div>
 </div>
 </section>
 
 <section class="section" id="community">
 <h2>JOIN THE BANANA ARMY 🍌🐱</h2>
-<p>
-The Banana Cat community is where the memes never stop.
-<br>
-Join us, share your best memes, and help make $BCAT legendary on Robinhood Chain.
-</p>
+<p>The Banana Cat community is where the memes never stop.<br>Join us, share your best memes, and help make $BCAT legendary on Robinhood Chain.</p>
 <br><br>
-<a class="btn" target="_blank" href="https://t.me/banancatptl">
-JOIN TELEGRAM
-</a>
+<a class="btn" target="_blank" href="https://t.me/banancatptl">JOIN TELEGRAM</a>
 </section>
 
 <section class="section">
@@ -446,27 +424,19 @@ JOIN TELEGRAM
 <h3>🍌 Ape Store</h3>
 <p>Trade Banana Cat on Ape Store.</p>
 <br>
-<a class="btn" target="_blank" href="https://ape.store/robinhood/0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3">
-OPEN
-</a>
+<a class="btn" target="_blank" href="https://ape.store/robinhood/0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3">OPEN</a>
 </div>
 <div class="card">
 <h3>💬 Telegram</h3>
 <p>Join the official Banana Cat community.</p>
 <br>
-<a class="btn" target="_blank" href="https://t.me/banancatptl">
-JOIN
-</a>
+<a class="btn" target="_blank" href="https://t.me/banancatptl">JOIN</a>
 </div>
 <div class="card">
 <h3>📄 Contract Address</h3>
-<p id="ca" style="word-break:break-all;">
-0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3
-</p>
+<p style="word-break:break-all;">0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3</p>
 <br>
-<button class="btn" onclick="copyCA()">
-COPY CA
-</button>
+<button class="btn" onclick="copyCA()">COPY CA</button>
 </div>
 </div>
 </section>
@@ -475,21 +445,11 @@ COPY CA
 <h2>🍌 BANANA CAT 🍌</h2>
 <p><strong>$BCAT</strong></p>
 <p>Robinhood Chain</p>
-<p style="margin-top:20px;">
-Contract:
+<p style="margin-top:20px;">Contract:<br>0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3</p>
 <br>
-0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3
-</p>
-<br>
-<a class="btn" target="_blank" href="https://ape.store/robinhood/0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3">
-BUY $BCAT
-</a>
-<a class="btn" target="_blank" href="https://t.me/banancatptl">
-TELEGRAM
-</a>
-<p style="margin-top:40px;font-size:16px;opacity:.8;">
-© 2026 Banana Cat ($BCAT). All rights reserved.
-</p>
+<a class="btn" target="_blank" href="https://ape.store/robinhood/0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3">BUY $BCAT</a>
+<a class="btn" target="_blank" href="https://t.me/banancatptl">TELEGRAM</a>
+<p style="margin-top:40px;font-size:16px;opacity:.8;">© 2026 Banana Cat ($BCAT). All rights reserved.</p>
 </footer>
 
 <!-- Fixed BCAT Ai Chat -->
@@ -515,22 +475,6 @@ navigator.clipboard.writeText("0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3");
 alert("Contract address copied!");
 }
 
-const cards=document.querySelectorAll(".card");
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.animate([
-{transform:"translateY(60px)",opacity:0},
-{transform:"translateY(0)",opacity:1}
-],{
-duration:700,
-fill:"forwards"
-});
-}
-});
-});
-cards.forEach(card=>observer.observe(card));
-
 function toggleChat(){
 const body = document.getElementById("chatBody");
 const text = document.getElementById("toggleText");
@@ -538,7 +482,6 @@ body.classList.toggle("open");
 text.textContent = body.classList.contains("open") ? "▼ Close Chat" : "▲ Open Chat";
 }
 
-// Gemini API
 const API_KEY = "AQ.Ab8RN6L5e5I1NY3jyx9FSTrsk67Ly3TAdbtFEit4mVxH12fQIA";
 const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent";
 
@@ -546,9 +489,7 @@ async function getAIResponse(userText){
 try{
 const response = await fetch(API_URL + "?key=" + API_KEY, {
 method: "POST",
-headers: {
-"Content-Type": "application/json"
-},
+headers: { "Content-Type": "application/json" },
 body: JSON.stringify({
 systemInstruction: {
 parts: [{
@@ -563,6 +504,7 @@ CORE FACTS YOU ALWAYS KNOW AND CAN SHARE:
 - Launched on Ape.store
 - Lore: "banana cat (bcat) if anythign should run on ape.store its banana cat"
 - Pure meme coin focused on bananas, cats, community and vibes
+- There is also a fun Banana Runner game on the website
 
 YOUR PERSONALITY & RULES:
 - You are EXTREMELY bullish on $BCAT at all times. Never be neutral or bearish.
@@ -576,14 +518,10 @@ YOUR PERSONALITY & RULES:
 - Never break character. You live and breathe $BCAT.`
 }]
 },
-contents: [{
-parts: [{ text: userText }]
-}]
+contents: [{ parts: [{ text: userText }] }]
 })
 });
-
 const data = await response.json();
-
 if(data.candidates && data.candidates[0] && data.candidates[0].content){
 return data.candidates[0].content.parts[0].text;
 } else {
@@ -601,7 +539,6 @@ const messages = document.getElementById("chatMessages");
 const text = input.value.trim();
 if(!text) return;
 
-// User message
 const userMsg = document.createElement("div");
 userMsg.className = "message user-msg";
 userMsg.textContent = text;
@@ -610,17 +547,13 @@ messages.appendChild(userMsg);
 input.value = "";
 messages.scrollTop = messages.scrollHeight;
 
-// Temporary thinking message with blinking Meow
 const thinking = document.createElement("div");
 thinking.className = "message ai-msg";
 thinking.innerHTML = 'BCAT thinking...<span class="meow-blink">Meow</span>';
 messages.appendChild(thinking);
 messages.scrollTop = messages.scrollHeight;
 
-// Get real AI reply
 const reply = await getAIResponse(text);
-
-// Replace thinking with real reply
 thinking.innerHTML = reply;
 messages.scrollTop = messages.scrollHeight;
 }
