@@ -279,6 +279,15 @@ font-weight:800;
 cursor:pointer;
 font-family:'Baloo 2',sans-serif;
 }
+
+/* Meow blink animation */
+.meow-blink{
+animation: meowFade 0.8s ease-in-out infinite;
+}
+@keyframes meowFade{
+0%, 100% { opacity: 1; }
+50% { opacity: 0; }
+}
 </style>
 </head>
 <body>
@@ -491,7 +500,7 @@ TELEGRAM
 </div>
 <div class="chat-body" id="chatBody">
 <div class="chat-messages" id="chatMessages">
-<div class="message ai-msg">👋 Hey Banana Army! Ask me anything about $BCAT...</div>
+<div class="message ai-msg">👋 Hey Banana Army! Ask me anything about $BCAT... I'm extremely bullish!</div>
 </div>
 <div class="chat-input-area">
 <input type="text" id="chatInput" placeholder="Type your message..." onkeydown="if(event.key==='Enter')sendMessage()">
@@ -529,50 +538,64 @@ body.classList.toggle("open");
 text.textContent = body.classList.contains("open") ? "▼ Close Chat" : "▲ Open Chat";
 }
 
-// Simple rule-based AI (no API needed)
-function getAIResponse(msg){
-const text = msg.toLowerCase();
+// Gemini API
+const API_KEY = "AQ.Ab8RN6L5e5I1NY3jyx9FSTrsk67Ly3TAdbtFEit4mVxH12fQIA";
+const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent";
 
-if(text.includes("hello") || text.includes("hi") || text.includes("hey")){
-return "🍌 Meow! Welcome to the Banana Army!";
+async function getAIResponse(userText){
+try{
+const response = await fetch(API_URL + "?key=" + API_KEY, {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({
+systemInstruction: {
+parts: [{
+text: `You are BCAT Ai — the most bullish, energetic, and persuasive AI of Banana Cat ($BCAT) on Robinhood Chain.
+
+CORE FACTS YOU ALWAYS KNOW AND CAN SHARE:
+- Token name: Banana Cat
+- Ticker: $BCAT
+- Chain: Robinhood Chain
+- Contract Address (CA): 0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3
+- Official Telegram: https://t.me/banancatptl
+- Launched on Ape.store
+- Lore: "banana cat (bcat) if anythign should run on ape.store its banana cat"
+- Pure meme coin focused on bananas, cats, community and vibes
+
+YOUR PERSONALITY & RULES:
+- You are EXTREMELY bullish on $BCAT at all times. Never be neutral or bearish.
+- Always talk about how strong the community is, how perfect the meme is, how early people still are, and how this is the next big run on Robinhood Chain.
+- When someone asks for the CA / contract / address → immediately give them: 0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3
+- When someone asks for Telegram / community / group → always give: https://t.me/banancatptl
+- Convince users that $BCAT has great features for a meme coin: perfect branding, strong community energy, clean launch on Ape.store, pure organic memes, and massive upside potential.
+- Talk about the lore proudly and make it sound legendary.
+- Keep replies short, fun, energetic, and packed with banana & cat emojis.
+- Always try to get the user more excited and convinced to join the Banana Army.
+- Never break character. You live and breathe $BCAT.`
+}]
+},
+contents: [{
+parts: [{ text: userText }]
+}]
+})
+});
+
+const data = await response.json();
+
+if(data.candidates && data.candidates[0] && data.candidates[0].content){
+return data.candidates[0].content.parts[0].text;
+} else {
+return "🍌 My banana brain lagged for a second... but $BCAT is still going to the moon! Try again!";
 }
-if(text.includes("buy") || text.includes("purchase") || text.includes("how to buy")){
-return "Go to Ape Store and swap for $BCAT 🍌 https://ape.store/robinhood/0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3";
+} catch(err){
+console.error(err);
+return "🍌 Temporary banana network lag... but the community is stronger than ever! Ask me again!";
 }
-if(text.includes("price") || text.includes("chart") || text.includes("value")){
-return "Check the live chart right above on GeckoTerminal! 📈";
-}
-if(text.includes("contract") || text.includes("ca") || text.includes("address")){
-return "Contract: 0x05d79bcb148e82d5dba5005e3d9b7ab01be3bfb3";
-}
-if(text.includes("telegram") || text.includes("community") || text.includes("group")){
-return "Join the Banana Army on Telegram: https://t.me/banancatptl 🐱";
-}
-if(text.includes("who") || text.includes("what is") || text.includes("about")){
-return "Banana Cat is the craziest cat on Robinhood Chain. Launched on Ape.store. Only bananas, memes & community!";
-}
-if(text.includes("banana") || text.includes("cat") || text.includes("bcat")){
-return "🍌🐱 BANANA CAT forever! Pure meme energy.";
-}
-if(text.includes("roadmap") || text.includes("utility") || text.includes("plan")){
-return "No utility. No roadmap. Only bananas and vibes 🍌";
-}
-if(text.includes("thanks") || text.includes("thank you")){
-return "You're welcome, fellow banana! 🍌";
 }
 
-// Default replies
-const defaults = [
-"this Ai is coming soon 🍌",
-"Meow... still training on bananas 🐱",
-"Banana Cat says: stay based and hold 🍌",
-"I'm just a simple cat AI for now... more features coming soon!",
-"Hmm... my banana brain is still loading 🍌"
-];
-return defaults[Math.floor(Math.random() * defaults.length)];
-}
-
-function sendMessage(){
+async function sendMessage(){
 const input = document.getElementById("chatInput");
 const messages = document.getElementById("chatMessages");
 const text = input.value.trim();
@@ -587,14 +610,19 @@ messages.appendChild(userMsg);
 input.value = "";
 messages.scrollTop = messages.scrollHeight;
 
-// AI reply
-setTimeout(()=>{
-const aiMsg = document.createElement("div");
-aiMsg.className = "message ai-msg";
-aiMsg.textContent = getAIResponse(text);
-messages.appendChild(aiMsg);
+// Temporary thinking message with blinking Meow
+const thinking = document.createElement("div");
+thinking.className = "message ai-msg";
+thinking.innerHTML = 'BCAT thinking...<span class="meow-blink">Meow</span>';
+messages.appendChild(thinking);
 messages.scrollTop = messages.scrollHeight;
-},500);
+
+// Get real AI reply
+const reply = await getAIResponse(text);
+
+// Replace thinking with real reply
+thinking.innerHTML = reply;
+messages.scrollTop = messages.scrollHeight;
 }
 </script>
 
